@@ -1,0 +1,42 @@
+def next_bigger(n):
+    # basic exit condition (no number below fits criteria)
+    if n < 12:
+        return -1
+
+    # search were it goes from high to low (in 2017 it goes from 7 to 1 in pos -2)
+    string = str(n)
+    slen = len(string)
+    rpos = ''  # reverse_position
+    for i in range(-2, (slen+1)*-1, -1):  # ie -2, -3, -4, -5 ..., -(len+1)
+        if string[i] < string[i+1]:
+            rpos = i
+            break
+
+    if not rpos:
+        return -1
+
+    # --- build next higher number by using parts of the original number
+    pos = slen + rpos  # regular position
+    safe_part = string[:pos]
+
+    # find a number to right (chosen) which is higher than pos but as close as posible to it
+    ref = string[pos]  # reference value
+    chosen = ''
+    chosen_i = '' # chosen index
+    for i in range(pos+1, slen):
+        if string[i] > ref and (string[i] < chosen or not chosen):
+            chosen = string[i]
+            chosen_i = i
+
+    chosen_i -= pos  # make chosen_i relative to pos
+
+    # remove chosen and sort
+    remaining_part = string[pos:]
+    remaining_part = remaining_part[:chosen_i]+remaining_part[chosen_i+1:]  # remove chosen
+    remaining_part = list(remaining_part)
+    remaining_part.sort()
+    string_remaining_part = ''.join(remaining_part)
+
+    # final number is the mix of the three parts
+    next_higher_number = safe_part + chosen + string_remaining_part  # THIS IS THE LOGIC OF THE PROBLEM
+    return int(next_higher_number)
