@@ -15,7 +15,7 @@ def format_duration(n):
             Repeat for days, hours, minutes until there are less than 60 seconds
     3. Create output string:
         (human_string_list = ['2 days', '1 minute'])
-        (human_string_ready = '2 days and 1 minute'
+        (human_string_ready = '2 days and 1 minute')
         Create output string which says 'year' for 1 year and years for more than 1 year
             Repeat for days, hours, minutes, seconds
             Remove empty years, days, hours, minutes or seconds from output
@@ -61,21 +61,18 @@ def format_duration(n):
     tails = ['year', 'day', 'hour', 'minute', 'second']
     human_string_list = []
     for i in range(len(human)):
-        if human[i] != 0:  # output cannot say '0 years'
+        if human[i] != 0:  # output cannot say '0 years' or '0 days'
             plural = '' if human[i] == 1 else 's'  # '1 year' or '2 years' with 's' at the end
             human_string_list.append(' '.join([str(human[i]), tails[i]+plural]))
 
     # make final string using concat with ',' or 'and'
     human_string_ready = ''
-    if len(human_string_list) == 1:
-        human_string_ready = human_string_list[0]
-    else:
-        for i in range(len(human_string_list)):
-            if i == 0:
-                human_string_ready = human_string_list[0]
-            elif i == len(human_string_list)-1:
-                human_string_ready = ' and '.join([human_string_ready, human_string_list[i]])
-            else:
-                human_string_ready = ', '.join([human_string_ready, human_string_list[i]])
+    for i in range(len(human_string_list)):
+        if i == 0:
+            human_string_ready = human_string_list[0]
+        elif i == len(human_string_list)-1:
+            human_string_ready = ' and '.join([human_string_ready, human_string_list[i]])
+        else:
+            human_string_ready = ', '.join([human_string_ready, human_string_list[i]])
 
     return human_string_ready
