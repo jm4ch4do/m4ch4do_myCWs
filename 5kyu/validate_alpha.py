@@ -32,6 +32,11 @@ def validate_alpha(_password):
     return True
 
 
+# simplest solution
+def validate_alpha2(_password):
+    return _password.isalnum()
+
+
 # ------------------------- MAIN CODE -------------------------
 result = validate_alpha('myPassword123')
 print(result)
