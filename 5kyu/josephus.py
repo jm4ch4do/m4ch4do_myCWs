@@ -48,7 +48,7 @@ def josephus(_soldiers, _k):
             index = 0 if index == len(_soldiers) - 1 else index + 1  # get back to the start after last soldier
             continue
 
-        # count == _k -> kill the third soldier
+        # count == _k -> kill the third(_k) soldier
         if count == _k:
             _deads.append(_soldiers.pop(index))
             count = 1
