@@ -1,4 +1,4 @@
-# ----- Problem: Range Extraction (5kyu)
+# ----- Problem: Range Extraction (4kyu)
 # ----- URL: https://www.codewars.com/kata/51ba717bb08c1cd60f00002f
 
 
