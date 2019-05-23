@@ -1,4 +1,4 @@
-# ----- Problem: Sudoku Solution Validator (4ku)
+# ----- Problem: Sudoku Solution Validator (4kyu)
 # ----- URL: https://www.codewars.com/kata/529bf0e9bdf7657179000008/
 
 def make_row_from_3x3(_row_start, _col_start, _board):
