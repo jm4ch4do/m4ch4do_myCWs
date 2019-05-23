@@ -1,4 +1,4 @@
-# ----- Problem: Strip Comments (4ku)
+# ----- Problem: Strip Comments (4kyu)
 # ----- URL: https://www.codewars.com/kata/strip-comments
 
 
